@@ -327,7 +327,7 @@ version = "1.11.0"
 
 [[DynamicPPL]]
 deps = ["AbstractMCMC", "Bijectors", "Distributions", "MacroTools", "Random", "ZygoteRules"]
-git-tree-sha1 = "b229440f32b7e072f5fd1c5a6301d0db35068659"
+git-tree-sha1 = "dfabf9e2066419e4e97f0c54fbbe80114b276d6d"
 repo-rev = "mt/neurips"
 repo-url = "https://github.com/TuringLang/DynamicPPL.jl.git"
 uuid = "366bfd00-2699-11ea-058f-f148b4cae6d8"
@@ -1136,7 +1136,7 @@ version = "0.3.8"
 
 [[Turing]]
 deps = ["AbstractMCMC", "AdvancedHMC", "AdvancedMH", "BangBang", "Bijectors", "Distributions", "DistributionsAD", "DocStringExtensions", "DynamicPPL", "EllipticalSliceSampling", "ForwardDiff", "Libtask", "LinearAlgebra", "LogDensityProblems", "MCMCChains", "ProgressLogging", "Random", "Reexport", "Requires", "SpecialFunctions", "Statistics", "StatsBase", "StatsFuns", "Tracker"]
-git-tree-sha1 = "e571b5136174b030099d864ae6126765628ac37c"
+git-tree-sha1 = "f5cad57ac668c65da8d96b623e45ce616fd8ec4f"
 repo-rev = "mt/neurips"
 repo-url = "https://github.com/TuringLang/Turing.jl.git"
 uuid = "fce5fe82-541a-59a6-adf8-730c64b5f9a0"
