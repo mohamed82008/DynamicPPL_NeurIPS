@@ -1,0 +1,24 @@
+---
+hmm_semisup
+---
+[turing]
+times = Any[75.714951501, 28.337387599, 75.1157337, 73.0728938]
+Benchmark results
+  Compilation time: 16.872946468000002 (approximately)
+  Running time: 58.842005033 +/- 26.437512407756532 (3 runs)
+  Forward time: 0.0028757
+  Gradient time (forwarddiff): 0.045524701
+  Gradient time (reversediff): 0.0045228
+
+---
+lda_unvectorized
+---
+[turing]
+times = Any[60.4283724, 55.866921599, 58.880704, 56.8264605]
+Benchmark results
+  Compilation time: 3.2370103670000034 (approximately)
+  Running time: 57.191362033 +/- 1.5396707234774725 (3 runs)
+  Forward time: 0.0006473
+  Gradient time (forwarddiff): 0.0178512
+  Gradient time (reversediff): 0.002668699
+

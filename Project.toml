@@ -1,3 +1,5 @@
+name = "DynamicPPL_NeurIPS"
+
 [deps]
 AbstractMCMC = "80f14c24-f653-4e6a-9b94-39d6b0f70001"
 ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
