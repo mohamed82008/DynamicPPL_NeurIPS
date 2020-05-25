@@ -1,17 +1,18 @@
 ---
-hmm_semisup
+high_dim_gauss
 ---
 [turing]
 Benchmark results
-  Compilation time: 10.656775801000002 (approximately)
-  Running time: 59.887407599999996 +/- 2.4848437911208503 (3 runs)
-  Forward time: 0.0017125
-  Gradient time (forwarddiff): 0.0185874
-  Gradient time (reversediff): 0.004313001
+  Compilation time: 7.397742532333332 (approximately)
+  Running time: 8.025212766666668 +/- 0.4545997690140449 (3 runs)
+  Forward time: 0.001296599
+  Gradient time (forwarddiff): 1.3255064
+  Gradient time (reversediff): 0.000150499
+  Gradient time (tracker): 0.000302
 [stan]
 
-Gradient evaluation took 0.003 seconds
-1000 transitions using 10 leapfrog steps per transition would take 30 seconds.
+Gradient evaluation took 0.001 seconds
+1000 transitions using 10 leapfrog steps per transition would take 10 seconds.
 Adjust your expectations accordingly!
 
 
@@ -28,8 +29,30 @@ Iteration: 90 / 100 [ 90%]  (Sampling)
 Iteration: 100 / 100 [100%]  (Sampling)
 
  Elapsed Time: 0 seconds (Warm-up)
-               0.759 seconds (Sampling)
-               0.759 seconds (Total)
+               0.328 seconds (Sampling)
+               0.328 seconds (Total)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               7.543 seconds (Sampling)
+               7.543 seconds (Total)
 
 
 Gradient evaluation took 0.001 seconds
@@ -50,12 +73,12 @@ Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Iteration: 2000 / 2000 [100%]  (Sampling)
 
  Elapsed Time: 0 seconds (Warm-up)
-               13.991 seconds (Sampling)
-               13.991 seconds (Total)
+               8.621 seconds (Sampling)
+               8.621 seconds (Total)
 
 
-Gradient evaluation took 0.001 seconds
-1000 transitions using 10 leapfrog steps per transition would take 10 seconds.
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
 Adjust your expectations accordingly!
 
 
@@ -72,8 +95,256 @@ Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Iteration: 2000 / 2000 [100%]  (Sampling)
 
  Elapsed Time: 0 seconds (Warm-up)
-               13.748 seconds (Sampling)
-               13.748 seconds (Total)
+               8.55 seconds (Sampling)
+               8.55 seconds (Total)
+
+Benchmark results
+  Running time: 9.1483268 +/- 0.7348967527924982 (3 runs)
+  Forward time: 0.000804001
+  Gradient time: 0.0016782
+
+---
+gauss_unknown
+---
+[turing]
+Benchmark results
+  Compilation time: 9.031516232333333 (approximately)
+  Running time: 3.235219966666667 +/- 0.14499678502174923 (3 runs)
+  Forward time: 7.95e-5
+  Gradient time (forwarddiff): 7.26e-5
+  Gradient time (reversediff): 0.0001132
+  Gradient time (tracker): 0.0001541
+[stan]
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:  1 / 100 [  1%]  (Sampling)
+Iteration: 10 / 100 [ 10%]  (Sampling)
+Iteration: 20 / 100 [ 20%]  (Sampling)
+Iteration: 30 / 100 [ 30%]  (Sampling)
+Iteration: 40 / 100 [ 40%]  (Sampling)
+Iteration: 50 / 100 [ 50%]  (Sampling)
+Iteration: 60 / 100 [ 60%]  (Sampling)
+Iteration: 70 / 100 [ 70%]  (Sampling)
+Iteration: 80 / 100 [ 80%]  (Sampling)
+Iteration: 90 / 100 [ 90%]  (Sampling)
+Iteration: 100 / 100 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               0.018 seconds (Sampling)
+               0.018 seconds (Total)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               0.37 seconds (Sampling)
+               0.37 seconds (Total)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               0.371 seconds (Sampling)
+               0.371 seconds (Total)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               0.361 seconds (Sampling)
+               0.361 seconds (Total)
+
+Benchmark results
+  Running time: 0.37671910000000003 +/- 0.008076602569657691 (3 runs)
+  Forward time: 3.56e-5
+  Gradient time: 4.8e-5
+
+---
+h_poisson
+---
+[turing]
+Benchmark results
+  Compilation time: 11.705161567000001 (approximately)
+  Running time: 1.0310886330000002 +/- 0.04998235125261483 (3 runs)
+  Forward time: 0.0001088
+  Gradient time (forwarddiff): 6.2099e-5
+  Gradient time (reversediff): 6.1599e-5
+  Gradient time (tracker): 0.0002851
+[stan]
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:  1 / 100 [  1%]  (Sampling)
+Iteration: 10 / 100 [ 10%]  (Sampling)
+Iteration: 20 / 100 [ 20%]  (Sampling)
+Iteration: 30 / 100 [ 30%]  (Sampling)
+Iteration: 40 / 100 [ 40%]  (Sampling)
+Iteration: 50 / 100 [ 50%]  (Sampling)
+Iteration: 60 / 100 [ 60%]  (Sampling)
+Iteration: 70 / 100 [ 70%]  (Sampling)
+Iteration: 80 / 100 [ 80%]  (Sampling)
+Iteration: 90 / 100 [ 90%]  (Sampling)
+Iteration: 100 / 100 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               0.005 seconds (Sampling)
+               0.005 seconds (Total)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               0.095 seconds (Sampling)
+               0.095 seconds (Total)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               0.126 seconds (Sampling)
+               0.126 seconds (Total)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               0.117 seconds (Sampling)
+               0.117 seconds (Total)
+
+Benchmark results
+  Running time: 0.13342416666666665 +/- 0.015245775684914638 (3 runs)
+  Forward time: 1.22e-5
+  Gradient time: 2.66e-5
+
+---
+hmm_semisup
+---
+[turing]
+Benchmark results
+  Compilation time: 10.071366898666668 (approximately)
+  Running time: 80.90493050033334 +/- 1.4462239964793244 (3 runs)
+  Forward time: 0.002603699
+  Gradient time (forwarddiff): 0.0531469
+  Gradient time (reversediff): 0.005923199
+[stan]
+
+Gradient evaluation took 0.001 seconds
+1000 transitions using 10 leapfrog steps per transition would take 10 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:  1 / 100 [  1%]  (Sampling)
+Iteration: 10 / 100 [ 10%]  (Sampling)
+Iteration: 20 / 100 [ 20%]  (Sampling)
+Iteration: 30 / 100 [ 30%]  (Sampling)
+Iteration: 40 / 100 [ 40%]  (Sampling)
+Iteration: 50 / 100 [ 50%]  (Sampling)
+Iteration: 60 / 100 [ 60%]  (Sampling)
+Iteration: 70 / 100 [ 70%]  (Sampling)
+Iteration: 80 / 100 [ 80%]  (Sampling)
+Iteration: 90 / 100 [ 90%]  (Sampling)
+Iteration: 100 / 100 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               0.869 seconds (Sampling)
+               0.869 seconds (Total)
 
 
 Gradient evaluation took 0.002 seconds
@@ -94,30 +365,72 @@ Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Iteration: 2000 / 2000 [100%]  (Sampling)
 
  Elapsed Time: 0 seconds (Warm-up)
-               14.271 seconds (Sampling)
-               14.271 seconds (Total)
+               17.827 seconds (Sampling)
+               17.827 seconds (Total)
+
+
+Gradient evaluation took 0.002 seconds
+1000 transitions using 10 leapfrog steps per transition would take 20 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               17.621 seconds (Sampling)
+               17.621 seconds (Total)
+
+
+Gradient evaluation took 0.003 seconds
+1000 transitions using 10 leapfrog steps per transition would take 30 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               17.558 seconds (Sampling)
+               17.558 seconds (Total)
 
 Benchmark results
-  Running time: 14.173734732999998 +/- 0.2522732055714017 (3 runs)
-  Forward time: 0.0007311
-  Gradient time: 0.001122199
+  Running time: 17.896309533666667 +/- 0.13066007295234017 (3 runs)
+  Forward time: 0.000791799
+  Gradient time: 0.0012901
 
 ---
-lda
+naive_bayes
 ---
 [turing]
 Benchmark results
-  Compilation time: 6.130413200666668 (approximately)
-  Running time: 15.794815300333331 +/- 1.1863282978848033 (3 runs)
-  Forward time: 0.0001706
-  Gradient time (forwarddiff): 0.022467101
-  Gradient time (reversediff): 0.0012002
-  Gradient time (zygote): 0.006027701
-  Gradient time (tracker): 0.0015525
+  Compilation time: 8.300130300333333 (approximately)
+  Running time: 0.9101303996666666 +/- 0.020332436445089395 (3 runs)
+  Forward time: 7.91e-5
+  Gradient time (forwarddiff): 0.0019956
+  Gradient time (reversediff): 4.97e-5
 [stan]
 
-Gradient evaluation took 0.007 seconds
-1000 transitions using 10 leapfrog steps per transition would take 70 seconds.
+Gradient evaluation took 0.002 seconds
+1000 transitions using 10 leapfrog steps per transition would take 20 seconds.
 Adjust your expectations accordingly!
 
 
@@ -134,12 +447,12 @@ Iteration: 90 / 100 [ 90%]  (Sampling)
 Iteration: 100 / 100 [100%]  (Sampling)
 
  Elapsed Time: 0 seconds (Warm-up)
-               1.606 seconds (Sampling)
-               1.606 seconds (Total)
+               0.438 seconds (Sampling)
+               0.438 seconds (Total)
 
 
-Gradient evaluation took 0.003 seconds
-1000 transitions using 10 leapfrog steps per transition would take 30 seconds.
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
 Adjust your expectations accordingly!
 
 
@@ -156,12 +469,12 @@ Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Iteration: 2000 / 2000 [100%]  (Sampling)
 
  Elapsed Time: 0 seconds (Warm-up)
-               33.267 seconds (Sampling)
-               33.267 seconds (Total)
+               7.91 seconds (Sampling)
+               7.91 seconds (Total)
 
 
-Gradient evaluation took 0.003 seconds
-1000 transitions using 10 leapfrog steps per transition would take 30 seconds.
+Gradient evaluation took 0.001 seconds
+1000 transitions using 10 leapfrog steps per transition would take 10 seconds.
 Adjust your expectations accordingly!
 
 
@@ -178,12 +491,12 @@ Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Iteration: 2000 / 2000 [100%]  (Sampling)
 
  Elapsed Time: 0 seconds (Warm-up)
-               34.089 seconds (Sampling)
-               34.089 seconds (Total)
+               8.109 seconds (Sampling)
+               8.109 seconds (Total)
 
 
-Gradient evaluation took 0.003 seconds
-1000 transitions using 10 leapfrog steps per transition would take 30 seconds.
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
 Adjust your expectations accordingly!
 
 
@@ -200,11 +513,338 @@ Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Iteration: 2000 / 2000 [100%]  (Sampling)
 
  Elapsed Time: 0 seconds (Warm-up)
-               34.58 seconds (Sampling)
-               34.58 seconds (Total)
+               8.139 seconds (Sampling)
+               8.139 seconds (Total)
 
 Benchmark results
-  Running time: 34.736349500333326 +/- 0.6427201067469198 (3 runs)
-  Forward time: 0.0016592
-  Gradient time: 0.0028479
+  Running time: 8.808118666 +/- 0.12269968587627295 (3 runs)
+  Forward time: 0.0004872
+  Gradient time: 0.0005585
+
+---
+logistic_reg
+---
+[turing]
+Benchmark results
+  Compilation time: 5.033864166333334 (approximately)
+  Running time: 19.676300033666667 +/- 3.150723457771404 (3 runs)
+  Forward time: 0.001799099
+  Gradient time (forwarddiff): 0.055203
+  Gradient time (reversediff): 0.0011402
+  Gradient time (tracker): 0.0064233
+[stan]
+
+Gradient evaluation took 0.002 seconds
+1000 transitions using 10 leapfrog steps per transition would take 20 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:  1 / 100 [  1%]  (Sampling)
+Iteration: 10 / 100 [ 10%]  (Sampling)
+Iteration: 20 / 100 [ 20%]  (Sampling)
+Iteration: 30 / 100 [ 30%]  (Sampling)
+Iteration: 40 / 100 [ 40%]  (Sampling)
+Iteration: 50 / 100 [ 50%]  (Sampling)
+Iteration: 60 / 100 [ 60%]  (Sampling)
+Iteration: 70 / 100 [ 70%]  (Sampling)
+Iteration: 80 / 100 [ 80%]  (Sampling)
+Iteration: 90 / 100 [ 90%]  (Sampling)
+Iteration: 100 / 100 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               0.984 seconds (Sampling)
+               0.984 seconds (Total)
+
+
+Gradient evaluation took 0.002 seconds
+1000 transitions using 10 leapfrog steps per transition would take 20 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               19.786 seconds (Sampling)
+               19.786 seconds (Total)
+
+
+Gradient evaluation took 0.002 seconds
+1000 transitions using 10 leapfrog steps per transition would take 20 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               19.794 seconds (Sampling)
+               19.794 seconds (Total)
+
+
+Gradient evaluation took 0.002 seconds
+1000 transitions using 10 leapfrog steps per transition would take 20 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               19.997 seconds (Sampling)
+               19.997 seconds (Total)
+
+Benchmark results
+  Running time: 20.347538866666667 +/- 0.1071774748631891 (3 runs)
+  Forward time: 0.0009829
+  Gradient time: 0.0010249
+
+---
+sto_volatility
+---
+[turing]
+Benchmark results
+  Compilation time: 13.366826700000008 (approximately)
+  Running time: 27.239724299999995 +/- 5.058816597515017 (3 runs)
+  Forward time: 0.004908
+  Gradient time (forwarddiff): 0.1522099
+  Gradient time (reversediff): 0.0009691
+  Gradient time (tracker): 0.0103905
+[stan]
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:  1 / 100 [  1%]  (Sampling)
+Iteration: 10 / 100 [ 10%]  (Sampling)
+Iteration: 20 / 100 [ 20%]  (Sampling)
+Iteration: 30 / 100 [ 30%]  (Sampling)
+Iteration: 40 / 100 [ 40%]  (Sampling)
+Iteration: 50 / 100 [ 50%]  (Sampling)
+Iteration: 60 / 100 [ 60%]  (Sampling)
+Iteration: 70 / 100 [ 70%]  (Sampling)
+Iteration: 80 / 100 [ 80%]  (Sampling)
+Iteration: 90 / 100 [ 90%]  (Sampling)
+Iteration: 100 / 100 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               0.072 seconds (Sampling)
+               0.072 seconds (Total)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               1.327 seconds (Sampling)
+               1.327 seconds (Total)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               1.361 seconds (Sampling)
+               1.361 seconds (Total)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               1.709 seconds (Sampling)
+               1.709 seconds (Total)
+
+Benchmark results
+  Running time: 2.2928467329999997 +/- 0.37679494384510853 (3 runs)
+  Forward time: 0.000112199
+  Gradient time: 0.0001873
+
+---
+lda
+---
+[turing]
+Benchmark results
+  Compilation time: 9.859017434000002 (approximately)
+  Running time: 20.115178767 +/- 0.2177618249960478 (3 runs)
+  Forward time: 0.000208799
+  Gradient time (forwarddiff): 0.032539199
+  Gradient time (reversediff): 0.0013873
+  Gradient time (tracker): 0.0018867
+[stan]
+
+Gradient evaluation took 0.008 seconds
+1000 transitions using 10 leapfrog steps per transition would take 80 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:  1 / 100 [  1%]  (Sampling)
+Iteration: 10 / 100 [ 10%]  (Sampling)
+Iteration: 20 / 100 [ 20%]  (Sampling)
+Iteration: 30 / 100 [ 30%]  (Sampling)
+Iteration: 40 / 100 [ 40%]  (Sampling)
+Iteration: 50 / 100 [ 50%]  (Sampling)
+Iteration: 60 / 100 [ 60%]  (Sampling)
+Iteration: 70 / 100 [ 70%]  (Sampling)
+Iteration: 80 / 100 [ 80%]  (Sampling)
+Iteration: 90 / 100 [ 90%]  (Sampling)
+Iteration: 100 / 100 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               2.465 seconds (Sampling)
+               2.465 seconds (Total)
+
+
+Gradient evaluation took 0.005 seconds
+1000 transitions using 10 leapfrog steps per transition would take 50 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               47.887 seconds (Sampling)
+               47.887 seconds (Total)
+
+
+Gradient evaluation took 0.005 seconds
+1000 transitions using 10 leapfrog steps per transition would take 50 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               36.063 seconds (Sampling)
+               36.063 seconds (Total)
+
+
+Gradient evaluation took 0.004 seconds
+1000 transitions using 10 leapfrog steps per transition would take 40 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Sampling)
+Iteration:  200 / 2000 [ 10%]  (Sampling)
+Iteration:  400 / 2000 [ 20%]  (Sampling)
+Iteration:  600 / 2000 [ 30%]  (Sampling)
+Iteration:  800 / 2000 [ 40%]  (Sampling)
+Iteration: 1000 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0 seconds (Warm-up)
+               32.159 seconds (Sampling)
+               32.159 seconds (Total)
+
+Benchmark results
+  Running time: 39.537937267 +/- 8.344766326106615 (3 runs)
+  Forward time: 0.0017146
+  Gradient time: 0.0028281
+
+---
+lda_unvectorized
+---
+[turing]
+Benchmark results
+  Compilation time: 4.443720900999999 (approximately)
+  Running time: 49.4506237 +/- 1.3108234998563772 (3 runs)
+  Forward time: 0.0010501
+  Gradient time (forwarddiff): 0.0805112
+  Gradient time (reversediff): 0.003805
+[stan]
 

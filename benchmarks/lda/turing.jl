@@ -20,7 +20,7 @@ model = lda(data["K"], data["V"], data["M"], data["N"], data["w"], data["doc"], 
 
 step_size = 0.01
 n_steps = 4
-test_zygote = true
+test_zygote = false
 test_tracker = true
 
 include("../infer_turing.jl")
