@@ -1,6 +1,6 @@
 # Setup Instructions
 
-When first setting up this environment, please follow the following instructions:
+When first setting up this environment, please follow the following instructions. Steps 2 and 7 can be ignored if you don't want to run Stan models.
 
 1. Download and install Julia 1.4 from https://julialang.org/downloads/.
 2. Download and setup PyStan using the instructions in https://pystan.readthedocs.io/en/latest/getting_started.html#.
