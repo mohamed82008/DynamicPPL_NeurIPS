@@ -609,7 +609,7 @@ version = "1.16.0+2"
 
 [[Libtask]]
 deps = ["BinaryProvider", "Libdl", "Pkg"]
-git-tree-sha1 = "adbb732f2646061ebb617dc1df74a5ec7040b5bb"
+git-tree-sha1 = "38702765554461f0596d97e3ff2f7bc4894cb071"
 repo-rev = "mt/neurips"
 repo-url = "https://github.com/TuringLang/Libtask.jl.git"
 uuid = "6f1fad26-d15e-5dc8-ae53-837a1d7b8c9f"
