@@ -13,6 +13,9 @@ models = [
     "sto_volatility",
     "lda",
     "lda_unvectorized",
+
+    # dynamic models
+    "stochastic_control_flow",
 ]
 
 # TODO: support pass in a list of models
@@ -47,18 +50,22 @@ let buffer=IOBuffer()   # use IOBuffer to deplay writing to the file in the end
         write(buffer, "$model\n")
         write(buffer, "---\n")
         for ppl in ppls
-            write(buffer, "[$ppl]\n")
-            @info "Benchmarking $model using $ppl ..."
-            cmd = `julia $(projectdir("benchmarks", model, "$ppl.jl")) --benchmark`
-            if "WANDB" in keys(ENV) && ENV["WANDB"] == "1"
-                # Logging to W&B
-                withenv("MODEL_NAME" => model) do
+            if isfile(projectdir("benchmarks", model, "$ppl.jl"))
+                write(buffer, "[$ppl]\n")
+                @info "Benchmarking $model using $ppl ..."
+                cmd = `julia $(projectdir("benchmarks", model, "$ppl.jl")) --benchmark`
+                if "WANDB" in keys(ENV) && ENV["WANDB"] == "1"
+                    # Logging to W&B
+                    withenv("MODEL_NAME" => model) do
+                        res = read(cmd, String)
+                    end
+                else
                     res = read(cmd, String)
                 end
+                write(buffer, res)
             else
-                res = read(cmd, String)
+                @warn "skipping $model using $ppl ... "
             end
-            write(buffer, res)
         end
         write(buffer, "\n")
     end
