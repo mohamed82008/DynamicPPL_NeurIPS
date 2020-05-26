@@ -11,7 +11,7 @@
     # Sample(
         # algorithm=alg,
         # num_warmup=0,
-        # num_samples=10_000,
+        # num_samples=50_000,
         # adapt=CmdStan.Adapt(engaged=false),
         # save_warmup=true,
     # ),
@@ -31,7 +31,7 @@ sm = pystan.StanModel(model_code=model_str,
   extra_compile_args = ["-ftemplate-depth-256", "-O3",
    "-mtune=native", "-march=native", "-pipe", "-fno-trapping-math",
     "-funroll-loops", "-funswitch-loops"])
-fit_stan(n_iters=10_000) = sm.sampling(
+fit_stan(n_iters=50_000) = sm.sampling(
     data=data, iter=n_iters, chains=1, warmup=0, algorithm="HMC",
     control=Dict(
         "adapt_engaged" => false,

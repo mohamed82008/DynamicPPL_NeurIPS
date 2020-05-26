@@ -4,8 +4,8 @@ Turing.setadbackend(:reversediff)
 Turing.setrdcache(true)
 
 alg = HMC(step_size, n_steps)
-n_samples = 10_000
-n_runs = 2
+n_samples = 50_000
+n_runs = 10
 
 chain = nothing
 
