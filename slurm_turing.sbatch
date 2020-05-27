@@ -1,9 +1,10 @@
 #!/bin/bash
 #
 #SBATCH --job-name=static_turing_benchmarks
-#SBATCH --output=static_turing_benchmarks.txt
+#SBATCH --output=static_turing_benchmarks.%A_%a.out
+#SBATCH --error=static_turing_benchmarks.%A_%a.error
 #
-#SBATCH --time=10:00
+#SBATCH --time=10:00:00
 #SBATCH --array=0-8
 #SBATCH -p simulation12
 #SBATCH --mem 40G 

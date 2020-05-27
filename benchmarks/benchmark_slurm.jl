@@ -45,16 +45,20 @@ PPL = args["ppl"]
 
 push!(ARGS, "--benchmark")
 
-if isfile(projectdir("benchmarks", MODEL, "$PPL.jl"))
-	@info "Benchmarking $MODEL using $PPL ..."
+script_exists = isfile(projectdir("benchmarks", MODEL, "$PPL.jl"))
+result_exists = isfile(projectdir("benchmarks", "results", "result-$MODEL-$PPL.csv"))
+
+if script_exists && !result_exists
+    @info "Benchmarking $MODEL using $PPL ..."
 
         withenv("MODEL_NAME" => MODEL) do
-		include(projectdir("benchmarks", MODEL, "$PPL.jl"))
+        include(projectdir("benchmarks", MODEL, "$PPL.jl"))
 
-		@assert @isdefined result
-		CSV.write(projectdir("benchmarks", "results.csv"), result, append=true)
-	end
-
+        @assert @isdefined result
+        CSV.write(projectdir("benchmarks", "results", "result-$MODEL-$PPL.csv"), result)
+        CSV.write(projectdir("benchmarks", "results.csv"), result, append=true)
+    end
 else
-	@warn "skipping $MODEL using $PPL ... "
+    @warn "skipping $MODEL using $PPL ... "
+    @info "script exists: $script_exists, results exists: $result_exists"
 end

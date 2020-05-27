@@ -9,22 +9,15 @@ seed!(1)
 @model testmodel(p, O) = begin
     x ~ Categorical(p)
     if x == 1
-        y ~ MvNormal(zeros(length(O)), 1.0)
-        for i in 1:length(O)
-            O[i] ~ Normal(y[i] * norm(y), 1.0)
-        end
+        y ~ filldist(Normal(), length(O))
+        O ~ TuringMvNormal(y, 1.0)
     elseif x == 2
-        z ~ MvNormal(zeros(length(O)), 1.0)
-        for i in 1:length(O)
-            O[i] ~ Normal(z[i] * norm(z), 1.0)
-        end
+        z ~ filldist(Normal(), length(O))
+        O ~ TuringMvNormal(z, 1.0)
     else
-        k ~ MvNormal(zeros(length(O)), 1.0)
-        for i in 1:length(O)
-            O[i] ~ Normal(k[i] * norm(k), 1.0)
-        end
+        k ~ filldist(Normal(), length(O))
+        O ~ TuringMvNormal(k, 1.0)
     end
-    return O
 end
 
 # sample data from prior
@@ -33,10 +26,6 @@ p = [0.25, 0.5, 0.25]
 O = Array{Float64}(testmodel(p, fill(missing, N))())
 
 model = testmodel(p, O)
-
-# inference
-n_particles = 10
-n_samples = 10_0
 
 include("../infer_turing_dynamic.jl")
 

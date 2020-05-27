@@ -2,7 +2,7 @@ using DataFrames
 
 n_runs = 3
 n_samples = 10_000
-n_particles = 100
+n_particles = 10
 
 alg = PG(n_particles)
 chain = nothing
@@ -32,16 +32,19 @@ if "--benchmark" in ARGS
                 push!(times, t)
             end
         end
+
         t_mean = mean(times[2:end])
         t_std = std(times[2:end])
+
         # Estimate compilation time
         t_with_compilation = times[1]
         t_compilation_approx = t_with_compilation - t_mean
-    
-	push!(result, ("time_mean", t_mean, runs, ENV["MODEL_NAME"], "turing"))
+
+        push!(result, ("time_compilation", t_compilation_approx, runs, ENV["MODEL_NAME"], "turing"))
+        push!(result, ("time_mean", t_mean, runs, ENV["MODEL_NAME"], "turing"))
     	push!(result, ("time_std", t_std, runs, ENV["MODEL_NAME"], "turing"))
-        
-	println("Benchmark results")
+
+        println("Benchmark results")
         println("  Compilation time ($runs): $t_compilation_approx (approximately)")
         println("  Running time ($runs): $t_mean +/- $t_std ($n_runs runs)")
         if clog
