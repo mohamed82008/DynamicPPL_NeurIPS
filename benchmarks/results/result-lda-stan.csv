@@ -1,0 +1,5 @@
+type,value,mode,model,ppl
+time_mean,729.1368063538,,lda,stan
+time_std,23.42874316279421,,lda,stan
+time_forward,0.001105028,,lda,stan
+time_gradient,0.001879715,,lda,stan

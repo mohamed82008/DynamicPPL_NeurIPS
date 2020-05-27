@@ -1,0 +1,5 @@
+type,value,mode,model,ppl
+time_mean,6.727399545900001,,gauss_unknown,stan
+time_std,0.022716248886529893,,gauss_unknown,stan
+time_forward,3.2031e-5,,gauss_unknown,stan
+time_gradient,4.213e-5,,gauss_unknown,stan

@@ -1,0 +1,8 @@
+type,value,mode,model,ppl
+time_compilation,-48.59489358039991,,sto_volatility,turing
+time_mean,1037.8789062774,,sto_volatility,turing
+time_std,110.85246497650135,,sto_volatility,turing
+time_forward,0.0060388,,sto_volatility,turing
+time_gradient,0.182060354,forwarddiff,sto_volatility,turing
+time_gradient,0.001356927,reversediff,sto_volatility,turing
+time_gradient,0.014262945,tracker,sto_volatility,turing

@@ -1,0 +1,8 @@
+type,value,mode,model,ppl
+time_compilation,4.590087849200032,,high_dim_gauss,turing
+time_mean,120.66114464479998,,high_dim_gauss,turing
+time_std,5.247191658820511,,high_dim_gauss,turing
+time_forward,0.001402134,,high_dim_gauss,turing
+time_gradient,1.090434125,forwarddiff,high_dim_gauss,turing
+time_gradient,0.000171327,reversediff,high_dim_gauss,turing
+time_gradient,0.000226351,tracker,high_dim_gauss,turing

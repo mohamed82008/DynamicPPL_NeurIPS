@@ -1,0 +1,5 @@
+type,value,mode,model,ppl
+time_mean,28.5517432836,,sto_volatility,stan
+time_std,0.12072624525054702,,sto_volatility,stan
+time_forward,0.000135679,,sto_volatility,stan
+time_gradient,0.000145257,,sto_volatility,stan

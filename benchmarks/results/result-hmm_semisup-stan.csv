@@ -1,0 +1,5 @@
+type,value,mode,model,ppl
+time_mean,253.3327016485,,hmm_semisup,stan
+time_std,1.8977997089518615,,hmm_semisup,stan
+time_forward,0.000384211,,hmm_semisup,stan
+time_gradient,0.000558061,,hmm_semisup,stan

@@ -1,0 +1,8 @@
+type,value,mode,model,ppl
+time_compilation,17.684886309899994,,gauss_unknown,turing
+time_mean,54.2632322921,,gauss_unknown,turing
+time_std,1.8874293856237754,,gauss_unknown,turing
+time_forward,9.7646e-5,,gauss_unknown,turing
+time_gradient,8.5283e-5,forwarddiff,gauss_unknown,turing
+time_gradient,0.000125028,reversediff,gauss_unknown,turing
+time_gradient,0.000150067,tracker,gauss_unknown,turing

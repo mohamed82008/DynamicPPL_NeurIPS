@@ -1,0 +1,9 @@
+type,value,mode,model,ppl
+time_compilation,12.2347197828,,h_poisson,turing
+time_mean,25.132139871200003,,h_poisson,turing
+time_std,0.23427663915182242,,h_poisson,turing
+time_forward,0.000113215,,h_poisson,turing
+time_gradient,7.5213e-5,forwarddiff,h_poisson,turing
+time_gradient,7.4051e-5,reversediff,h_poisson,turing
+time_gradient,0.000261618,tracker,h_poisson,turing
+ring

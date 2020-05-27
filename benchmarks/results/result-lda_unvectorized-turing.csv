@@ -1,0 +1,7 @@
+type,value,mode,model,ppl
+time_compilation,51.900259307700026,,lda_unvectorized,turing
+time_mean,1823.9525110393,,lda_unvectorized,turing
+time_std,109.80270641005346,,lda_unvectorized,turing
+time_forward,0.00174938,,lda_unvectorized,turing
+time_gradient,0.129781164,forwarddiff,lda_unvectorized,turing
+time_gradient,0.005098546,reversediff,lda_unvectorized,turing

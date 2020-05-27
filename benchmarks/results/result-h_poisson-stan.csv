@@ -1,0 +1,6 @@
+type,value,mode,model,ppl
+time_mean,1.5344492638999998,,h_poisson,stan
+time_std,0.20769135408856002,,h_poisson,stan
+time_forward,9.709e-6,,h_poisson,stan
+time_gradient,2.9376e-5,,h_poisson,stan
+
