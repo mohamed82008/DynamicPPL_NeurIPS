@@ -1,0 +1,6 @@
+type,value,mode,model,ppl
+time_mean,481.7485733548,,logistic_reg,stan
+time_std,1.032501492208006,,logistic_reg,stan
+time_forward,0.000877333,,logistic_reg,stan
+time_gradient,0.000837978,,logistic_reg,stan
+

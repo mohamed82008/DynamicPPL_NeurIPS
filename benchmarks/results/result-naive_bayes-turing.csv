@@ -1,0 +1,7 @@
+type,value,mode,model,ppl
+time_compilation,7.1708704437,,naive_bayes,turing
+time_mean,20.8173074663,,naive_bayes,turing
+time_std,0.12527723261928042,,naive_bayes,turing
+time_forward,0.000102346,,naive_bayes,turing
+time_gradient,0.002651076,forwarddiff,naive_bayes,turing
+time_gradient,3.7552e-5,reversediff,naive_bayes,turing

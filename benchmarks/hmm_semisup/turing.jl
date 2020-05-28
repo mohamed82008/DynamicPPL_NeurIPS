@@ -25,10 +25,12 @@ using StatsFuns: logsumexp
     for k in 1:K
         gamma[k] = log(phi[u[1],k])
     end
+
     for t in 2:T_unsup
         for k in 1:K
+            logphi = log(phi[u[t],k])
             for j in 1:K
-                acc[j] = gamma[j] + log(theta[k,j]) + log(phi[u[t],k])
+                acc[j] = gamma[j] + log(theta[k,j]) + logphi
             end
             temp_gamma[k] = logsumexp(acc)
         end
@@ -44,6 +46,7 @@ n_steps = 4
 test_zygote = false
 test_tracker = false
 
+seed!(2)
 include("../infer_turing.jl")
 
 ;

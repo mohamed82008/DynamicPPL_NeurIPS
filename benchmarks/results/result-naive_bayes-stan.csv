@@ -1,0 +1,5 @@
+type,value,mode,model,ppl
+time_mean,97.69738133090001,,naive_bayes,stan
+time_std,6.452919318574981,,naive_bayes,stan
+time_forward,0.000244567,,naive_bayes,stan
+time_gradient,0.000307496,,naive_bayes,stan
