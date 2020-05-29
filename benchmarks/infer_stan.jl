@@ -11,7 +11,7 @@
     # Sample(
         # algorithm=alg,
         # num_warmup=0,
-        # num_samples=50_000,
+        # num_samples=10_000,
         # adapt=CmdStan.Adapt(engaged=false),
         # save_warmup=true,
     # ),
@@ -20,7 +20,7 @@
     # tmpdir=joinpath(pwd(), "tmpjl")
 # )
 
-n_runs = 10
+n_runs = 100
 
 using BenchmarkTools
 using DataFrames
@@ -31,7 +31,7 @@ sm = pystan.StanModel(model_code=model_str,
   extra_compile_args = ["-ftemplate-depth-256", "-O3",
    "-mtune=native", "-march=native", "-pipe", "-fno-trapping-math",
     "-funroll-loops", "-funswitch-loops"])
-fit_stan(n_iters=50_000) = sm.sampling(
+fit_stan(n_iters=10_000) = sm.sampling(
     data=data, iter=n_iters, chains=1, warmup=0, algorithm="HMC",
     control=Dict(
         "adapt_engaged" => false,
@@ -65,16 +65,17 @@ if "--benchmark" in ARGS
         # Parse inference time from log
         # tl = read(pipeline(`tail tmp/noname_run.log`, `rg "s \(S"`), String)
         # t = parse(Float64, match(r"[0-9]+.[0-9]+", tl).match)
+        push!(result, ("time", t, i, ENV["MODEL_NAME"], "stan"))
         push!(times, t)
         clog && wandb.log(Dict("time" => t))
     end
     t_mean = mean(times)
     t_std = std(times)
     t_forward = @belapsed $forward_model($theta)
+    t_forward = @belapsed $forward_model($theta)
+    t_gradient = @belapsed $gradient($theta)
     t_gradient = @belapsed $gradient($theta)
     
-    push!(result, ("time_mean", t_mean, "", ENV["MODEL_NAME"], "stan"))
-    push!(result, ("time_std", t_std, "", ENV["MODEL_NAME"], "stan"))
     push!(result, ("time_forward", t_forward, "", ENV["MODEL_NAME"], "stan"))
     push!(result, ("time_gradient", t_gradient, "", ENV["MODEL_NAME"], "stan"))
     

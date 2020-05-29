@@ -4,8 +4,8 @@ Turing.setadbackend(:reversediff)
 Turing.setrdcache(true)
 
 alg = HMC(step_size, n_steps)
-n_samples = 50_000
-n_runs = 10
+n_samples = 10_000
+n_runs = 100
 
 chain = nothing
 
@@ -74,6 +74,7 @@ if "--benchmark" in ARGS
     times = []
     for i in 1:n_runs+1
         with_logger(NullLogger()) do    # disable numerical error warnings
+	    seed!(i)
             t = @elapsed sample(model, alg, n_samples; progress=false, chain_type=Any)
             clog && i > 1 && wandb.log(Dict("time" => t))
             push!(times, t)
@@ -84,14 +85,16 @@ if "--benchmark" in ARGS
     # Estimate compilation time
     t_with_compilation = times[1]
     t_compilation_approx = t_with_compilation - t_mean
+
     t_forward = @belapsed $forward_model($theta)
-   
+    t_forward = @belapsed $forward_model($theta)
 
     push!(result, ("time_compilation", t_compilation_approx, "", ENV["MODEL_NAME"], "turing"))
-    push!(result, ("time_mean", t_mean, "", ENV["MODEL_NAME"], "turing"))
-    push!(result, ("time_std", t_std, "", ENV["MODEL_NAME"], "turing"))
+    for i in 2:n_runs+1
+        push!(result, ("time", times[i], i-1, ENV["MODEL_NAME"], "turing"))
+    end
     push!(result, ("time_forward", t_forward, "", ENV["MODEL_NAME"], "turing"))
-    
+
     println("Benchmark results")
     println("  Compilation time: $t_compilation_approx (approximately)")
     println("  Running time: $t_mean +/- $t_std ($n_runs runs)")
@@ -103,6 +106,7 @@ if "--benchmark" in ARGS
         wandb.run.summary.time_forward = t_forward
     end
     for (name, grad_func) in zip(keys(ADBACKENDS), grad_funcs)
+        t = @belapsed $grad_func($theta)
         t = @belapsed $grad_func($theta)
     	push!(result, ("time_gradient", t, name, ENV["MODEL_NAME"], "turing"))
         println("  Gradient time ($name): $t")

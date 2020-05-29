@@ -1,8 +1,0 @@
-type,value,mode,model,ppl
-time_compilation,161.46054143949982,,logistic_reg,turing
-time_mean,1947.9895700845002,,logistic_reg,turing
-time_std,187.09129321870876,,logistic_reg,turing
-time_forward,0.007214288,,logistic_reg,turing
-time_gradient,0.049153644,forwarddiff,logistic_reg,turing
-time_gradient,0.004299419,reversediff,logistic_reg,turing
-time_gradient,0.004127371,tracker,logistic_reg,turing
