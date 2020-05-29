@@ -9,40 +9,48 @@ using LinearAlgebra
 using Random: seed!
 seed!(1)
 
-@model function imm(y, alpha, ::Type{T}=Vector{Float64}) where T
-    m = DirichletProcess(α)
+@model function ibp(y, α, ::Type{M}=Vector{Int}) where {M}
+
     N = length(y)
-    nk = tzeros(Int, N)
-    z = tzeros(Int, N)
 
-    for i in 1:N
-        z[i] ~ ChineseRestaurantProcess(m,nk)
-        nk[z[i]] += 1
+    k = tzeros(Int, N)
+    z = tzeros(Int, N, k)
+
+    k[1] ~ Poisson(α)
+    z[1,:] .= 1
+
+    for i in 2:N
+        K = size(z, 2)
+        for j in 1:K
+            mk = sum(z[:,j])
+            z[i,k] ~ Bernoulli(mk / i)
+        end
+        k[i] ~ Poisson(α / i)
+        if k[i] > 0
+            z = hcat(z, tzeros(Int, N, k[i]))
+            z[i,(K+1):end] .= 1
+        end
     end
 
-    K = findlast(!iszero, nk)
-
-    μ = T(undef, K)
-    s = T(undef, K)
+    K = size(z, 2)
+    μ = M(undef, K)
     for k = 1:K
-        μ[k] ~ Normal(0.0, 1.0)
-        s[k] ~ InverseGamma(2.0, 3.0)
+        μ[k] ~ Normal(0.0, 10.0)
     end
 
     for i in 1:N
-        x[i] ~ Normal(μ[z[i]], sqrt(s[z[i]]))
-    end
+        y[i] ~ Normal(μ' * z[i,:], 1.0)
+    end 
 end
 
-# sample data from prior
 x = [-1.48, -1.40, -1.16, -1.08, -1.02, 0.14, 0.51, 0.53, 0.78];
-model = imm(x, 10.0)
+model = ibp(x, 10.0)
 
 n_runs = 100
 n_samples = 10_000
 n_particles = 3
 
-alg = Gibbs(HMC(0.01, 5, :μ, :s), PG(n_particles, :z))
+alg = Gibbs(HMC(0.01, 5, :μ), PG(n_particles, :z, :k))
 chain = nothing
 
 using BenchmarkTools
@@ -59,7 +67,7 @@ if "--benchmark" in ARGS
         using PyCall: pyimport
         wandb = pyimport("wandb")
         wandb.init(project="turing-benchmark")
-        wandb.config.update(Dict("ppl" => "turing", "model" => "imm"))
+        wandb.config.update(Dict("ppl" => "turing", "model" => "ibp"))
     end
     for runs in type_specialization
         times = []
@@ -68,7 +76,7 @@ if "--benchmark" in ARGS
                 t = @elapsed sample(model, alg, n_samples; progress=false, chain_type=Any, specialize_after = runs)
                 clog && i > 1 && wandb.log(Dict("time" => t))
                 push!(times, t)
-                push!(result, ("time_$runs", t, i, "imm", "turing"))
+                push!(result, ("time_$runs", t, i, "ibp", "turing"))
             end
         end
 

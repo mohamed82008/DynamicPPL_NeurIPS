@@ -9,40 +9,26 @@ using LinearAlgebra
 using Random: seed!
 seed!(1)
 
-@model function imm(y, alpha, ::Type{T}=Vector{Float64}) where T
-    m = DirichletProcess(α)
-    N = length(y)
-    nk = tzeros(Int, N)
-    z = tzeros(Int, N)
-
-    for i in 1:N
-        z[i] ~ ChineseRestaurantProcess(m,nk)
-        nk[z[i]] += 1
+@model function changepoint(y)
+    α = 1/mean(y)
+    λ₁ = Exponential(α)
+    λ₂ = Exponential(α)
+    τ = DiscreteUniform(1, length(y))
+    for i in eachindex(y)
+        z[i] ~ Poisson(τ > i ? λ₁ : λ₂)
     end
-
-    K = findlast(!iszero, nk)
-
-    μ = T(undef, K)
-    s = T(undef, K)
-    for k = 1:K
-        μ[k] ~ Normal(0.0, 1.0)
-        s[k] ~ InverseGamma(2.0, 3.0)
-    end
-
-    for i in 1:N
-        x[i] ~ Normal(μ[z[i]], sqrt(s[z[i]]))
-    end
+    return τ
 end
 
 # sample data from prior
-x = [-1.48, -1.40, -1.16, -1.08, -1.02, 0.14, 0.51, 0.53, 0.78];
-model = imm(x, 10.0)
+x = vcat(rand(Poisson(4), 50), rand(Poisson(10), 50))
+model = changepoint(x)
 
 n_runs = 100
 n_samples = 10_000
 n_particles = 3
 
-alg = Gibbs(HMC(0.01, 5, :μ, :s), PG(n_particles, :z))
+alg = Gibbs(HMC(0.01, 5, :λ₁, :λ₂), PG(n_particles, :τ))
 chain = nothing
 
 using BenchmarkTools
@@ -59,7 +45,7 @@ if "--benchmark" in ARGS
         using PyCall: pyimport
         wandb = pyimport("wandb")
         wandb.init(project="turing-benchmark")
-        wandb.config.update(Dict("ppl" => "turing", "model" => "imm"))
+        wandb.config.update(Dict("ppl" => "turing", "model" => "changepoint"))
     end
     for runs in type_specialization
         times = []
@@ -68,7 +54,7 @@ if "--benchmark" in ARGS
                 t = @elapsed sample(model, alg, n_samples; progress=false, chain_type=Any, specialize_after = runs)
                 clog && i > 1 && wandb.log(Dict("time" => t))
                 push!(times, t)
-                push!(result, ("time_$runs", t, i, "imm", "turing"))
+                push!(result, ("time_$runs", t, i, "changepoint", "turing"))
             end
         end
 
