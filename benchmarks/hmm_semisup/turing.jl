@@ -2,7 +2,7 @@ using DrWatson
 @quickactivate "DynamicPPL_NeurIPS"
 
 using Random: seed!
-seed!(1)
+seed!(1234)
 
 include("data.jl")
 
