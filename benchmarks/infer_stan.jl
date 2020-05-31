@@ -20,7 +20,7 @@
     # tmpdir=joinpath(pwd(), "tmpjl")
 # )
 
-n_runs = 100
+n_runs = 10
 
 using BenchmarkTools
 using DataFrames

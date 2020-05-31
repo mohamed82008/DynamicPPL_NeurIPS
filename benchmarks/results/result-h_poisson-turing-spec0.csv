@@ -1,0 +1,16 @@
+type,value,mode,model,ppl
+time_compilation,14.372036513199998,,h_poisson,turing
+time,5.108403697,1,h_poisson,turing
+time,5.289567765,2,h_poisson,turing
+time,5.300622812,3,h_poisson,turing
+time,3.292481172,4,h_poisson,turing
+time,5.16522468,5,h_poisson,turing
+time,5.165304042,6,h_poisson,turing
+time,5.114321368,7,h_poisson,turing
+time,5.554130256,8,h_poisson,turing
+time,5.191569872,9,h_poisson,turing
+time,5.070812644,10,h_poisson,turing
+time_forward,2.0178e-5,,h_poisson,turing
+time_gradient,7.9482e-5,forwarddiff,h_poisson,turing
+time_gradient,7.4241e-5,reversediff,h_poisson,turing
+time_gradient,0.000279091,tracker,h_poisson,turing

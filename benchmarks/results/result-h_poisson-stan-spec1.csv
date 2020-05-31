@@ -1,0 +1,13 @@
+type,value,mode,model,ppl
+time,0.322208496,1,h_poisson,stan
+time,0.310899583,2,h_poisson,stan
+time,0.291745484,3,h_poisson,stan
+time,0.31266179,4,h_poisson,stan
+time,0.308052944,5,h_poisson,stan
+time,0.324841209,6,h_poisson,stan
+time,0.410108612,7,h_poisson,stan
+time,0.313400966,8,h_poisson,stan
+time,0.300279262,9,h_poisson,stan
+time,0.304843984,10,h_poisson,stan
+time_forward,1.054e-5,,h_poisson,stan
+time_gradient,2.2463e-5,,h_poisson,stan

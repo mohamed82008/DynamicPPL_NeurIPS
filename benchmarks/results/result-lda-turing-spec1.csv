@@ -1,0 +1,16 @@
+type,value,mode,model,ppl
+time_compilation,2.8863028389999954,,lda,turing
+time,115.678832649,1,lda,turing
+time,114.715915758,2,lda,turing
+time,113.858831387,3,lda,turing
+time,114.925402419,4,lda,turing
+time,112.997803177,5,lda,turing
+time,114.818867845,6,lda,turing
+time,115.137748934,7,lda,turing
+time,114.892839045,8,lda,turing
+time,114.488802073,9,lda,turing
+time,114.577094733,10,lda,turing
+time_forward,8.1095e-5,,lda,turing
+time_gradient,0.021559038,forwarddiff,lda,turing
+time_gradient,0.001222327,reversediff,lda,turing
+time_gradient,0.001821337,tracker,lda,turing
