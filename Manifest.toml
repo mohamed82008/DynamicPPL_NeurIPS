@@ -119,7 +119,7 @@ version = "0.5.0"
 
 [[Bijectors]]
 deps = ["ArgCheck", "Compat", "Distributions", "LinearAlgebra", "MappedArrays", "NNlib", "Random", "Reexport", "Requires", "Roots", "SparseArrays", "Statistics", "StatsFuns"]
-git-tree-sha1 = "9c85c1d1735182472d75b0abf9a64e085dc44916"
+git-tree-sha1 = "f5270ac3eddedb8772ae30fae349d0456c90daba"
 repo-rev = "mt/neurips"
 repo-url = "https://github.com/TuringLang/Bijectors.jl.git"
 uuid = "76274a88-744f-5084-9051-94815aaf08c4"
