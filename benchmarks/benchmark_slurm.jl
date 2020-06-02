@@ -49,7 +49,7 @@ PPL = args["ppl"]
 
 push!(ARGS, "--benchmark")
 
-specs = PPL == "stan" ? [1] : [0, 1]
+specs = PPL == "stan" ? [1] : [1,0]
 
 for spec in specs
     script_exists = isfile(projectdir("benchmarks", MODEL, "$PPL.jl"))
