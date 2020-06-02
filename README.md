@@ -32,6 +32,14 @@ The above steps are only needed the first time when setting things up. Every tim
 2. Call the Julia executable to start a new Julia session,
 3. Run `using DrWatson; @quickactivate "DynamicPPL_NeurIPS"`
 
-# Benchmarks
+# Running Benchmarks
 
-Instructions for running the benchmarks are given [here](benchmarks/README.md).
+To run the benchmarks locally, use the bash script `run_locally.sh`.
+In case you have access to a SLURM cluster system, you can submit each benchmark as a SLURM jobs by running `submit.sh`.
+
+# Reporting Results
+
+After all results have been computed, you can generate visualisations and a latex tables summarizing the results by running 
+```
+julia --project=. results.jl
+```
