@@ -277,6 +277,12 @@ version = "0.4.13"
 deps = ["Printf"]
 uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
 
+[[DefaultApplication]]
+deps = ["InteractiveUtils"]
+git-tree-sha1 = "fc2b7122761b22c87fec8bf2ea4dc4563d9f8c24"
+uuid = "3f0dd361-4fe0-5fc6-8523-80b14ec94d85"
+version = "1.0.0"
+
 [[DelimitedFiles]]
 deps = ["Mmap"]
 uuid = "8bb1440f-4735-579b-a4ab-409b98df4dab"
@@ -829,6 +835,12 @@ git-tree-sha1 = "2fc6f50ddd959e462f0a2dbc802ddf2a539c6e35"
 uuid = "90014a1f-27ba-587c-ab20-58faa44d9150"
 version = "0.9.12"
 
+[[PGFPlotsX]]
+deps = ["ArgCheck", "DataStructures", "Dates", "DefaultApplication", "DocStringExtensions", "MacroTools", "Parameters", "Requires", "StatsBase"]
+git-tree-sha1 = "50e805742e8d56fada59ef9c4065478aea7145cb"
+uuid = "8314cec4-20b6-5062-9cdb-752b83310925"
+version = "1.2.6"
+
 [[Parameters]]
 deps = ["OrderedCollections", "UnPack"]
 git-tree-sha1 = "38b2e970043613c187bd56a995fe2e551821eb4a"
@@ -886,12 +898,6 @@ deps = ["Base64", "Contour", "Dates", "FFMPEG", "FixedPointNumbers", "GR", "Geom
 git-tree-sha1 = "484ade6d734feb43c06721c689155eb4aa3259f5"
 uuid = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 version = "1.0.14"
-
-[[Pluto]]
-deps = ["Base64", "Distributed", "HTTP", "JSON", "Markdown", "Pkg", "REPL", "Sockets", "UUIDs"]
-git-tree-sha1 = "227af1f035f08ca012e0bc237714140889f59f65"
-uuid = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
-version = "0.9.2"
 
 [[PooledArrays]]
 deps = ["DataAPI"]
