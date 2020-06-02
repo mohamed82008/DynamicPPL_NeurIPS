@@ -3,6 +3,7 @@ using DrWatson
 
 using ArgParse
 using CSV
+using LinearAlgebra
 
 s = ArgParseSettings()
 
@@ -29,7 +30,10 @@ models = [
     "lda_unvectorized",
 
     # dynamic models
-    "stochastic_control_flow",
+    "ibp",
+    "crp",
+    "changepoint",
+    "demo_cflow",
 ]
 
 MODEL = args["model"]
@@ -50,6 +54,7 @@ result_exists = isfile(projectdir("benchmarks", "results", "result-$MODEL-$PPL-s
 
 if script_exists && !result_exists
     @info "Benchmarking $MODEL using $PPL ..."
+    @info "BLAS: $(BLAS.vendor())"
 
     withenv("MODEL_NAME" => MODEL, "TYPING" => 0) do
         include(projectdir("benchmarks", MODEL, "$PPL.jl"))

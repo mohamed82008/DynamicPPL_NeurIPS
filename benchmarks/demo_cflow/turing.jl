@@ -9,48 +9,27 @@ using LinearAlgebra
 using Random: seed!
 seed!(1)
 
-@model function ibp(y, α, kmax, ::Type{MV}=Vector{Float64}) where {MV}
-   N = length(y)
-   
-   ks = tzeros(Int, N)
-   ks[1] ~ Poisson(α)
-   ks[1] = ks[1] <= kmax ? ks[1] : kmax
-   
-   z = tzeros(Int, N, kmax)
-   z[1,1:ks[1]] .= 1
-
-   for i in 2:N
-       K = sum(ks[1:i-1])
-       for j in 1:K
-           mk = sum(z[:,j])
-           z[i,j] ~ Bernoulli(mk / i)
-       end
-       ks[i] ~ Poisson(α / i)
-       ks[i] = K+ks[i] <= kmax ? ks[i] : 0
-       if ks[i] > 0
-           z[i,(K+1):sum(ks[1:i])] .= 1
-       end
-   end
-
-   K = sum(ks)
-   μ = MV(undef, K)
-   for j = 1:K
-       μ[j] ~ Normal(0.0, 10.0)
-   end
-
-   for i in 1:N
-       y[i] ~ Normal(μ' * z[i,1:K], 1.0)
-   end
+@model demo(p, F, O) = begin
+    x ~ Categorical(p)
+    if x == 1
+        y ~ filldist(Normal(), size(F, 2))
+        O ~ TuringMvNormal(F * y, 1.0)
+    elseif x == 2
+        z ~ filldist(Normal(), size(F, 2))
+        O ~ TuringMvNormal(F * z, 1.0)
+    else
+        k ~ filldist(Normal(), size(F, 2))
+        O ~ TuringMvNormal(F * k, 1.0)
+    end
 end
 
-x = [-1.48, -1.40, -1.16, -1.08, -1.02, 0.14, 0.51, 0.53, 0.78];
-model = ibp(x, 10.0)
+model = demo(fill(1/3, 3), rand(1000, 10), rand(1000));
 
 n_runs = 10
 n_samples = 10_000
 n_particles = 3
 
-alg = Gibbs(HMC(0.01, 5, :μ), PG(n_particles, :z, :k))
+alg = Gibbs(HMC(0.01, 5, :y, :z, :k), PG(n_particles, :x))
 chain = nothing
 
 using BenchmarkTools
@@ -67,7 +46,7 @@ if "--benchmark" in ARGS
         using PyCall: pyimport
         wandb = pyimport("wandb")
         wandb.init(project="turing-benchmark")
-        wandb.config.update(Dict("ppl" => "turing", "model" => "ibp"))
+        wandb.config.update(Dict("ppl" => "turing", "model" => "demo"))
     end
     for runs in type_specialization
         times = []
@@ -76,7 +55,7 @@ if "--benchmark" in ARGS
                 t = @elapsed sample(model, alg, n_samples; progress=false, chain_type=Any, specialize_after = runs)
                 clog && i > 1 && wandb.log(Dict("time" => t))
                 push!(times, t)
-                push!(result, ("time_$runs", t, i, "ibp", "turing"))
+                push!(result, ("time_$runs", t, i, "demo", "turing"))
             end
         end
 
