@@ -65,7 +65,11 @@ if "--benchmark" in ARGS
         times = []
         for i in 1:n_runs+1
             with_logger(NullLogger()) do    # disable numerical error warnings
-                t = @elapsed sample(model, alg, n_samples; progress=false, chain_type=Any, specialize_after = runs)
+                seed!(i)
+                generic_sampler = Turing.Sampler(alg, model, specialize_after=runs);
+                empty!(generic_sampler);
+                seed!(i)
+                t = @elapsed sample(model, generic_sampler, n_samples; progress=false, chain_type=Any)
                 clog && i > 1 && wandb.log(Dict("time" => t))
                 push!(times, t)
                 push!(result, ("time_$runs", t, i, "imm", "turing"))
