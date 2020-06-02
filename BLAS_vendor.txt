@@ -1,0 +1,2 @@
+julia> BLAS.vendor() 
+:openblas64

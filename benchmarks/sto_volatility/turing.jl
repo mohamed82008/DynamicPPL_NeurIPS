@@ -19,11 +19,12 @@ using Turing
 
     h = Tv(undef, T)
     h[1] ~ Normal(μ, σ / sqrt(1 - ϕ^2))
-    y[1] ~ Normal(0, exp(h[1] / 2))
+    # y[1] ~ Normal(0, exp(h[1] / 2))
     for t in 2:T
         h[t] ~ Normal(μ + ϕ * (h[t-1] - μ), σ)
-        y[t] ~ Normal(0, exp(h[t] / 2))
+        # y[t] ~ Normal(0, exp(h[t] / 2))
     end
+    y ~ arraydist(map(t -> Normal(0, exp(h[t] / 2)), 1:T))
 end
 
 model = sto_volatility(data["y"])

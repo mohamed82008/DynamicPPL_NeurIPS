@@ -2,8 +2,11 @@
 
 using MLDatasets
 
-image_raw = MNIST.convert2features(MNIST.traintensor(Float64))
-label = MNIST.trainlabels() .+ 1
+mnistdir = "/clusterFS/home/user/martint/julia_depo_2/datadeps/MNIST"
+
+MNIST.traindata(dir = mnistdir)
+image_raw = MNIST.convert2features(MNIST.traintensor(Float64, dir = mnistdir))
+label = MNIST.trainlabels(dir=mnistdir) .+ 1
 
 # Pre-processing
 
