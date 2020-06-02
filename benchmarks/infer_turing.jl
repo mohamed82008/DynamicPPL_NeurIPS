@@ -1,5 +1,6 @@
 using DataFrames
 using ReverseDiff, Memoization, Zygote
+using DynamicPPL
 Turing.setadbackend(:reversediff)
 Turing.setrdcache(true)
 
@@ -11,6 +12,8 @@ chain = nothing
 
 using BenchmarkTools
 using Logging: with_logger, NullLogger
+
+typing = parse(Int, ENV["TYPING"])
 
 if test_tracker && test_zygote
     ADBACKENDS = Dict(
@@ -40,7 +43,7 @@ end
 
 function get_eval_functions(step_size, n_steps, model)
     spl_prior = Turing.SampleFromPrior()
-    vi = ENV["TYPING"] == 0 ? Turing.VarInfo(model, 0) : Turing.VarInfo(model)
+    vi = typing == 0 ? DynamicPPL.VarInfo(model, 0) : DynamicPPL.TypedVarInfo(model)
     function forward_model(x)
         Turing.link(vi)[spl_prior] = x
         model(Turing.link(vi), spl_prior)
@@ -52,7 +55,7 @@ function get_eval_functions(step_size, n_steps, model)
         Turing.Core.link!(vi, spl, model)
         x -> Turing.Core.gradient_logp(adbackend(), x, Turing.link(vi), model, spl)
     end
-    x = Turing.link(Turing.VarInfo(model))[Turing.SampleFromPrior()]
+    x = Turing.link(DynamicPPL.VarInfo(model))[Turing.SampleFromPrior()]
     return x, forward_model, grad_funcs
 end
 
@@ -74,7 +77,7 @@ if "--benchmark" in ARGS
     for i in 1:n_runs+1
         with_logger(NullLogger()) do    # disable numerical error warnings
             seed!(i)
-            t = @elapsed sample(model, alg, n_samples; progress=false, chain_type=Any, specialize_after=ENV["TYPING"])
+            t = @elapsed sample(model, alg, n_samples; progress=false, chain_type=Any, specialize_after=typing)
             clog && i > 1 && wandb.log(Dict("time" => t))
             push!(times, t)
         end
@@ -107,7 +110,7 @@ if "--benchmark" in ARGS
     for (name, grad_func) in zip(keys(ADBACKENDS), grad_funcs)
         #t = @belapsed $grad_func($theta)
         t = @belapsed $grad_func($theta)
-    	push!(result, ("time_gradient", t, name, ENV["MODEL_NAME"], "turing"))
+        push!(result, ("time_gradient", t, name, ENV["MODEL_NAME"], "turing"))
         println("  Gradient time ($name): $t")
         if clog
             s = Symbol("time_gradient_$name")

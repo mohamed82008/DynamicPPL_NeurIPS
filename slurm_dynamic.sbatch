@@ -7,7 +7,7 @@
 #SBATCH --time=10:00:00
 #SBATCH --array=0-3
 #SBATCH -p simulation12
-#SBATCH --mem 40G
+#SBATCH --mem 20G
 #SBATCH --cpus-per-task 1
 #SBATCH -D /clusterFS/home/user/martint/git/DynamicPPL_NeurIPS 
 
