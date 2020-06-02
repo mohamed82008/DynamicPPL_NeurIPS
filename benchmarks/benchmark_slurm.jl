@@ -49,39 +49,25 @@ PPL = args["ppl"]
 
 push!(ARGS, "--benchmark")
 
-script_exists = isfile(projectdir("benchmarks", MODEL, "$PPL.jl"))
-result_exists = isfile(projectdir("benchmarks", "results", "result-$MODEL-$PPL-spec0.csv"))
+specs = PPL == "stan" ? [1] : [0, 1]
 
-if script_exists && !result_exists
-    @info "Benchmarking $MODEL using $PPL ..."
-    @info "BLAS: $(BLAS.vendor())"
+for spec in specs
+    script_exists = isfile(projectdir("benchmarks", MODEL, "$PPL.jl"))
+    result_exists = isfile(projectdir("benchmarks", "results", "result-$MODEL-$PPL-spec$spec.csv"))
 
-    withenv("MODEL_NAME" => MODEL, "TYPING" => 0) do
-        include(projectdir("benchmarks", MODEL, "$PPL.jl"))
+    if script_exists && !result_exists
+        @info "Benchmarking $MODEL using $PPL - Spec: $spec ..."
+        @info "BLAS: $(BLAS.vendor())"
 
-        @assert @isdefined result
-        CSV.write(projectdir("benchmarks", "results", "result-$MODEL-$PPL-spec0.csv"), result)
-        #CSV.write(projectdir("benchmarks", "results.csv"), result, append=true)
+        withenv("MODEL_NAME" => MODEL, "TYPING" => $spec) do
+            include(projectdir("benchmarks", MODEL, "$PPL.jl"))
+
+            @assert @isdefined result
+            CSV.write(projectdir("benchmarks", "results", "result-$MODEL-$PPL-spec$spec.csv"), result)
+            #CSV.write(projectdir("benchmarks", "results.csv"), result, append=true)
+        end
+    else
+        @warn "skipping $MODEL using $PPL ... "
+        @info "script exists: $script_exists, results exists: $result_exists"
     end
-else
-    @warn "skipping $MODEL using $PPL ... "
-    @info "script exists: $script_exists, results exists: $result_exists"
-end
-
-script_exists = isfile(projectdir("benchmarks", MODEL, "$PPL.jl"))
-result_exists = isfile(projectdir("benchmarks", "results", "result-$MODEL-$PPL-spec1.csv"))
-
-if script_exists && !result_exists
-    @info "Benchmarking $MODEL using $PPL ..."
-
-    withenv("MODEL_NAME" => MODEL, "TYPING" => 1) do
-        include(projectdir("benchmarks", MODEL, "$PPL.jl"))
-
-        @assert @isdefined result
-        CSV.write(projectdir("benchmarks", "results", "result-$MODEL-$PPL-spec1.csv"), result)
-        #CSV.write(projectdir("benchmarks", "results.csv"), result, append=true)
-    end
-else
-    @warn "skipping $MODEL using $PPL ... "
-    @info "script exists: $script_exists, results exists: $result_exists"
 end

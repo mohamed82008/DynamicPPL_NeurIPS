@@ -887,6 +887,12 @@ git-tree-sha1 = "484ade6d734feb43c06721c689155eb4aa3259f5"
 uuid = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 version = "1.0.14"
 
+[[Pluto]]
+deps = ["Base64", "Distributed", "HTTP", "JSON", "Markdown", "Pkg", "REPL", "Sockets", "UUIDs"]
+git-tree-sha1 = "227af1f035f08ca012e0bc237714140889f59f65"
+uuid = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
+version = "0.9.2"
+
 [[PooledArrays]]
 deps = ["DataAPI"]
 git-tree-sha1 = "b1333d4eced1826e15adbdf01a4ecaccca9d353c"
