@@ -11,6 +11,6 @@
 #SBATCH --cpus-per-task 1
 #SBATCH -D /clusterFS/home/user/martint/git/DynamicPPL_NeurIPS 
 
-ARGS=(ibd crp changepoint demo_cflow)
+ARGS=(ibp crp changepoint demo_cflow)
 
 srun julia_1.4.1.afs benchmarks/benchmark_slurm.jl ${ARGS[$SLURM_ARRAY_TASK_ID]} turing
