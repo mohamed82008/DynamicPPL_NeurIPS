@@ -59,7 +59,7 @@ for spec in specs
         @info "Benchmarking $MODEL using $PPL - Spec: $spec ..."
         @info "BLAS: $(BLAS.vendor())"
 
-        withenv("MODEL_NAME" => MODEL, "TYPING" => $spec) do
+        withenv("MODEL_NAME" => MODEL, "TYPING" => spec) do
             include(projectdir("benchmarks", MODEL, "$PPL.jl"))
 
             @assert @isdefined result
