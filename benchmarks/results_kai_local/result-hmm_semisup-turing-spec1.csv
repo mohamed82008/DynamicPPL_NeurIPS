@@ -1,0 +1,15 @@
+type,value,mode,model,ppl
+time_compilation,46.755670527700005,,hmm_semisup,turing
+time,222.254834676,1,hmm_semisup,turing
+time,222.207123338,2,hmm_semisup,turing
+time,88.431916164,3,hmm_semisup,turing
+time,214.444070692,4,hmm_semisup,turing
+time,212.078933894,5,hmm_semisup,turing
+time,214.8043032,6,hmm_semisup,turing
+time,222.605947716,7,hmm_semisup,turing
+time,90.042135263,8,hmm_semisup,turing
+time,221.464370682,9,hmm_semisup,turing
+time,90.136158408,10,hmm_semisup,turing
+time_forward,0.000254327,,hmm_semisup,turing
+time_gradient,0.021188664,forwarddiff,hmm_semisup,turing
+time_gradient,0.002981372,reversediff,hmm_semisup,turing

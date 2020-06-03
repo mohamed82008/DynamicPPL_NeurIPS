@@ -1,0 +1,16 @@
+type,value,mode,model,ppl
+time_compilation,4.377246175099998,,sto_volatility,turing
+time,73.200968411,1,sto_volatility,turing
+time,61.661938385,2,sto_volatility,turing
+time,70.003422459,3,sto_volatility,turing
+time,70.784539636,4,sto_volatility,turing
+time,68.913918034,5,sto_volatility,turing
+time,69.03302993,6,sto_volatility,turing
+time,70.274776178,7,sto_volatility,turing
+time,68.347403319,8,sto_volatility,turing
+time,68.743297345,9,sto_volatility,turing
+time,67.378758002,10,sto_volatility,turing
+time_forward,0.000664728,,sto_volatility,turing
+time_gradient,0.041043479,forwarddiff,sto_volatility,turing
+time_gradient,0.000678213,reversediff,sto_volatility,turing
+time_gradient,0.008369327,tracker,sto_volatility,turing
