@@ -23,7 +23,7 @@ model = gauss_unknown(data["y"])
 step_size = 0.01
 n_steps = 4
 test_zygote = false
-test_tracker = true
+test_tracker = false
 
 include("../infer_turing.jl")
 

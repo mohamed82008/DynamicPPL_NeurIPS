@@ -19,7 +19,7 @@ model = high_dim_gauss(data["D"])
 step_size = 0.1
 n_steps = 4
 test_zygote = false
-test_tracker = true
+test_tracker = false
 
 include("../infer_turing.jl")
 
