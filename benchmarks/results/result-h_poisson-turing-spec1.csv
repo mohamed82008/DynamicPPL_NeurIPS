@@ -14,4 +14,3 @@ time_forward,7.066666666666667e-6,,h_poisson,turing
 time_gradient,5.3642e-5,forwarddiff,h_poisson,turing
 time_gradient,7.5755e-5,reversediff,h_poisson,turing
 time_gradient,0.000218307,tracker,h_poisson,turing
-ng

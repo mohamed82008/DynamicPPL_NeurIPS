@@ -11,4 +11,3 @@ time,5.52780679,9,sto_volatility,stan
 time,5.659553167,10,sto_volatility,stan
 time_forward,0.000129837,,sto_volatility,stan
 time_gradient,0.000208367,,sto_volatility,stan
-tan

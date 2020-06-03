@@ -11,4 +11,3 @@ time,0.306340783,9,h_poisson,stan
 time,0.325401417,10,h_poisson,stan
 time_forward,1.049e-5,,h_poisson,stan
 time_gradient,2.9105e-5,,h_poisson,stan
-
