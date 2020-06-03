@@ -9,7 +9,7 @@ using LinearAlgebra
 using Random: seed!
 seed!(1)
 
-@model function imm(y, alpha, ::Type{T}=Vector{Float64}) where T
+@model function imm(y, α, ::Type{T}=Vector{Float64}) where T
     m = DirichletProcess(α)
     N = length(y)
     nk = tzeros(Int, N)
@@ -53,14 +53,7 @@ result = DataFrame(type=[], value=[], mode=[], model=[], ppl=[])
 
 if "--benchmark" in ARGS
     using Statistics: mean, std
-    clog = "WANDB" in keys(ENV)    # cloud logging flag
-    if clog
-        # Setup W&B
-        using PyCall: pyimport
-        wandb = pyimport("wandb")
-        wandb.init(project="turing-benchmark")
-        wandb.config.update(Dict("ppl" => "turing", "model" => "imm"))
-    end
+    
     for runs in type_specialization
         times = []
         for i in 1:n_runs+1
@@ -70,10 +63,12 @@ if "--benchmark" in ARGS
                 empty!(generic_sampler);
                 seed!(i)
                 t = @elapsed sample(model, generic_sampler, n_samples; progress=false, chain_type=Any)
-                clog && i > 1 && wandb.log(Dict("time" => t))
                 push!(times, t)
-                push!(result, ("time_$runs", t, i, "imm", "turing"))
             end
+        end
+
+        for i in 2:n_runs+1
+            push!(result, ("time_$runs", t, i-1, "ibp", "turing"))
         end
 
         t_mean = mean(times[2:end])
@@ -86,12 +81,6 @@ if "--benchmark" in ARGS
         println("Benchmark results")
         println("  Compilation time ($runs): $t_compilation_approx (approximately)")
         println("  Running time ($runs): $t_mean +/- $t_std ($n_runs runs)")
-        if clog
-            s = Symbol("time_mean_$runs")
-            eval(:(wandb.run.summary.$s=$(t_mean)))
-            s = Symbol("time_std_$runs")
-            eval(:(wandb.run.summary.$s=$(t_std)))
-        end
     end
 else
     @time chain = sample(model, alg, n_samples; progress_style=:plain, chain_type=Any)

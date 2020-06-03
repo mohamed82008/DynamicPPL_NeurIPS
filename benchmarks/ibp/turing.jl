@@ -44,7 +44,7 @@ seed!(1)
 end
 
 x = [-1.48, -1.40, -1.16, -1.08, -1.02, 0.14, 0.51, 0.53, 0.78];
-model = ibp(x, 10.0)
+model = ibp(x, 10.0, 100)
 
 n_runs = 10
 n_samples = 10_000
@@ -60,15 +60,6 @@ type_specialization = [0, 1, 10, 100]
 result = DataFrame(type=[], value=[], mode=[], model=[], ppl=[])
 
 if "--benchmark" in ARGS
-    using Statistics: mean, std
-    clog = "WANDB" in keys(ENV)    # cloud logging flag
-    if clog
-        # Setup W&B
-        using PyCall: pyimport
-        wandb = pyimport("wandb")
-        wandb.init(project="turing-benchmark")
-        wandb.config.update(Dict("ppl" => "turing", "model" => "ibp"))
-    end
     for runs in type_specialization
         times = []
         for i in 1:n_runs+1
@@ -78,10 +69,12 @@ if "--benchmark" in ARGS
                 empty!(generic_sampler);
                 seed!(i)
                 t = @elapsed sample(model, generic_sampler, n_samples; progress=false, chain_type=Any)
-                clog && i > 1 && wandb.log(Dict("time" => t))
                 push!(times, t)
-                push!(result, ("time_$runs", t, i, "ibp", "turing"))
             end
+        end
+
+        for i in 2:n_runs+1
+            push!(result, ("time_$runs", t, i-1, "ibp", "turing"))
         end
 
         t_mean = mean(times[2:end])
@@ -94,16 +87,10 @@ if "--benchmark" in ARGS
         println("Benchmark results")
         println("  Compilation time ($runs): $t_compilation_approx (approximately)")
         println("  Running time ($runs): $t_mean +/- $t_std ($n_runs runs)")
-        if clog
-            s = Symbol("time_mean_$runs")
-            eval(:(wandb.run.summary.$s=$(t_mean)))
-            s = Symbol("time_std_$runs")
-            eval(:(wandb.run.summary.$s=$(t_std)))
-        end
     end
 else
     @time chain = sample(model, alg, n_samples; progress_style=:plain, chain_type=Any)
 end
 result
 
-;
+
