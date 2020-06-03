@@ -1,0 +1,15 @@
+type,value,mode,model,ppl
+time_compilation,4.194111955,,naive_bayes,turing
+time,2.8514398,1,naive_bayes,turing
+time,2.860061519,2,naive_bayes,turing
+time,2.681329976,3,naive_bayes,turing
+time,2.792219633,4,naive_bayes,turing
+time,2.717160144,5,naive_bayes,turing
+time,2.77562115,6,naive_bayes,turing
+time,2.655966083,7,naive_bayes,turing
+time,2.718588852,8,naive_bayes,turing
+time,3.353871161,9,naive_bayes,turing
+time,2.775309552,10,naive_bayes,turing
+time_forward,6.59775e-6,,naive_bayes,turing
+time_gradient,0.001134855,forwarddiff,naive_bayes,turing
+time_gradient,3.6156e-5,reversediff,naive_bayes,turing
