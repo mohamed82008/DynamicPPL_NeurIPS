@@ -32,7 +32,7 @@ model = sto_volatility(data["y"])
 step_size = 0.0002
 n_steps = 4
 test_zygote = false
-test_tracker = true
+test_tracker = false
 
 include("../infer_turing.jl")
 

@@ -15,7 +15,7 @@ seed!(1)
     λ₂ = Exponential(α)
     τ = DiscreteUniform(1, length(y))
     for i in eachindex(y)
-        z[i] ~ Poisson(τ > i ? λ₁ : λ₂)
+        y[i] ~ Poisson(τ > i ? λ₁ : λ₂)
     end
     return τ
 end
@@ -24,7 +24,7 @@ end
 x = vcat(rand(Poisson(4), 50), rand(Poisson(10), 50))
 model = changepoint(x)
 
-n_runs = 100
+n_runs = 10
 n_samples = 10_000
 n_particles = 3
 
