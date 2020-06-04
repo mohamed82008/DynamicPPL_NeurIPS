@@ -1,0 +1,15 @@
+type,value,mode,model,ppl
+time_compilation,4.578045551900004,,logistic_reg,turing
+time,38.124777106,1,logistic_reg,turing
+time,37.414219257,2,logistic_reg,turing
+time,37.746615182,3,logistic_reg,turing
+time,37.826314719,4,logistic_reg,turing
+time,37.863778063,5,logistic_reg,turing
+time,38.632836472,6,logistic_reg,turing
+time,38.014161158,7,logistic_reg,turing
+time,37.724796311,8,logistic_reg,turing
+time,37.709360489,9,logistic_reg,turing
+time,38.131464324,10,logistic_reg,turing
+time_forward,0.000531863,,logistic_reg,turing
+time_gradient,0.053901087,forwarddiff,logistic_reg,turing
+time_gradient,0.000763257,reversediff,logistic_reg,turing
