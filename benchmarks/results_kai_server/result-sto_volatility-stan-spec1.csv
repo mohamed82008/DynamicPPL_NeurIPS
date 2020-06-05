@@ -1,0 +1,13 @@
+type,value,mode,model,ppl
+time,6.647699781,1,sto_volatility,stan
+time,6.360156394,2,sto_volatility,stan
+time,6.275195214,3,sto_volatility,stan
+time,6.372873828,4,sto_volatility,stan
+time,6.364918773,5,sto_volatility,stan
+time,6.265944885,6,sto_volatility,stan
+time,6.236793645,7,sto_volatility,stan
+time,6.270247767,8,sto_volatility,stan
+time,6.355931402,9,sto_volatility,stan
+time,6.337162295,10,sto_volatility,stan
+time_forward,0.000141644,,sto_volatility,stan
+time_gradient,0.000212536,,sto_volatility,stan

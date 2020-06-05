@@ -1,0 +1,13 @@
+type,value,mode,model,ppl
+time,161.491720008,1,lda,stan
+time,164.197637596,2,lda,stan
+time,163.61169631,3,lda,stan
+time,156.483565123,4,lda,stan
+time,150.205976149,5,lda,stan
+time,145.741554089,6,lda,stan
+time,153.19868252,7,lda,stan
+time,171.615683921,8,lda,stan
+time,163.85004031,9,lda,stan
+time,159.147246639,10,lda,stan
+time_forward,0.002127716,,lda,stan
+time_gradient,0.002757243,,lda,stan

@@ -1,0 +1,13 @@
+type,value,mode,model,ppl
+time,29.077860464,1,hmm_semisup,stan
+time,27.884900635,2,hmm_semisup,stan
+time,27.887479115,3,hmm_semisup,stan
+time,28.741398538,4,hmm_semisup,stan
+time,29.932634215,5,hmm_semisup,stan
+time,30.087565809,6,hmm_semisup,stan
+time,30.598907986,7,hmm_semisup,stan
+time,31.503850195,8,hmm_semisup,stan
+time,33.321560084,9,hmm_semisup,stan
+time,31.671179798,10,hmm_semisup,stan
+time_forward,0.000422198,,hmm_semisup,stan
+time_gradient,0.000517887,,hmm_semisup,stan

@@ -9,10 +9,11 @@ include("data.jl")
 data = get_data()
 
 using Memoization, Turing
+using DistributionsAD: TuringMvNormal
 
 @model naive_bayes(image_vec, label, D, N, C) = begin
     m ~ filldist(Normal(0, 10), C, D)
-    image_vec ~ MvNormal(vec(m[label,:]), 1)
+    image_vec ~ TuringMvNormal(vec(m[label,:]), 1.0)
 end
 
 N = 10

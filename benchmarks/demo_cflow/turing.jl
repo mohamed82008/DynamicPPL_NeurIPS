@@ -2,7 +2,7 @@ using DrWatson
 @quickactivate "DynamicPPL_NeurIPS"
 
 using Turing
-using Turing.RandomMeasures
+using DistributionsAD: TuringMvNormal
 using Statistics
 using DataFrames
 using LinearAlgebra

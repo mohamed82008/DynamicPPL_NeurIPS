@@ -1,0 +1,13 @@
+type,value,mode,model,ppl
+time,1.759888892,1,gauss_unknown,stan
+time,1.717477267,2,gauss_unknown,stan
+time,1.730550004,3,gauss_unknown,stan
+time,1.728058382,4,gauss_unknown,stan
+time,1.716387698,5,gauss_unknown,stan
+time,1.715889359,6,gauss_unknown,stan
+time,1.732222912,7,gauss_unknown,stan
+time,1.732525546,8,gauss_unknown,stan
+time,1.71688394,9,gauss_unknown,stan
+time,1.72302974,10,gauss_unknown,stan
+time_forward,3.9811e-5,,gauss_unknown,stan
+time_gradient,5.5875e-5,,gauss_unknown,stan

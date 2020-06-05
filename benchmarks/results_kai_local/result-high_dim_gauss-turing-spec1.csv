@@ -1,0 +1,16 @@
+type,value,mode,model,ppl
+time_compilation,5.296482590499998,,high_dim_gauss,turing
+time,14.781044542,1,high_dim_gauss,turing
+time,15.162532088,2,high_dim_gauss,turing
+time,15.214994561,3,high_dim_gauss,turing
+time,14.731840386,4,high_dim_gauss,turing
+time,14.744061659,5,high_dim_gauss,turing
+time,14.71812648,6,high_dim_gauss,turing
+time,15.563316209,7,high_dim_gauss,turing
+time,13.865489438,8,high_dim_gauss,turing
+time,14.754731751,9,high_dim_gauss,turing
+time,14.893595341,10,high_dim_gauss,turing
+time_forward,2.3635e-5,,high_dim_gauss,turing
+time_gradient,0.590765177,forwarddiff,high_dim_gauss,turing
+time_gradient,0.000105308,reversediff,high_dim_gauss,turing
+time_gradient,0.000161453,tracker,high_dim_gauss,turing
