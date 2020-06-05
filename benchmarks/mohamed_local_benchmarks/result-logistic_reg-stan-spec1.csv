@@ -1,0 +1,13 @@
+type,value,mode,model,ppl
+time,65.055221301,1,logistic_reg,stan
+time,64.535523,2,logistic_reg,stan
+time,63.7312694,3,logistic_reg,stan
+time,63.7898657,4,logistic_reg,stan
+time,65.0781325,5,logistic_reg,stan
+time,63.6791962,6,logistic_reg,stan
+time,63.7087814,7,logistic_reg,stan
+time,64.2838149,8,logistic_reg,stan
+time,63.1850013,9,logistic_reg,stan
+time,67.3103714,10,logistic_reg,stan
+time_forward,0.0009772,,logistic_reg,stan
+time_gradient,0.0010332,,logistic_reg,stan

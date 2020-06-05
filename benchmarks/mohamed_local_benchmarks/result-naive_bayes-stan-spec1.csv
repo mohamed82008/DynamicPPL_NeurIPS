@@ -1,0 +1,13 @@
+type,value,mode,model,ppl
+time,33.3870358,1,naive_bayes,stan
+time,31.392277999,2,naive_bayes,stan
+time,32.971260199,3,naive_bayes,stan
+time,31.8787946,4,naive_bayes,stan
+time,34.2868778,5,naive_bayes,stan
+time,34.657707701,6,naive_bayes,stan
+time,30.6101727,7,naive_bayes,stan
+time,30.7168042,8,naive_bayes,stan
+time,30.4747478,9,naive_bayes,stan
+time,30.2551557,10,naive_bayes,stan
+time_forward,0.000453299,,naive_bayes,stan
+time_gradient,0.0005246,,naive_bayes,stan

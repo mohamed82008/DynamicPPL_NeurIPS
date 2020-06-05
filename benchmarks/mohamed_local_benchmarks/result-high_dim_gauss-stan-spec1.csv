@@ -1,0 +1,13 @@
+type,value,mode,model,ppl
+time,35.576976101,1,high_dim_gauss,stan
+time,43.160876,2,high_dim_gauss,stan
+time,45.8636274,3,high_dim_gauss,stan
+time,46.807097601,4,high_dim_gauss,stan
+time,42.465853601,5,high_dim_gauss,stan
+time,45.8806149,6,high_dim_gauss,stan
+time,54.8334539,7,high_dim_gauss,stan
+time,49.3732337,8,high_dim_gauss,stan
+time,49.9119309,9,high_dim_gauss,stan
+time,55.1396696,10,high_dim_gauss,stan
+time_forward,0.000755801,,high_dim_gauss,stan
+time_gradient,0.001381,,high_dim_gauss,stan
